@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { FormControl, FormGroup } from '@angular/forms'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   })
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
 
     res.subscribe((data: any) => {
       sessionStorage.setItem('access_token', data.token)
+      this.router.navigate(['/dashboard'])
     })
   }
 

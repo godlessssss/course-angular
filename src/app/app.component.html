@@ -1,2 +1,7 @@
-<h1>moje aplikace</h1>
-<app-login></app-login>
+<h1 (click)="goHome()">moje aplikace</h1>
+<nav>
+    <a routerLink="/login">login</a>
+    <br>
+    <a routerLink="/dashboard">dashboard</a>
+</nav>
+<router-outlet></router-outlet>
